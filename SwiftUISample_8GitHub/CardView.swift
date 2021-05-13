@@ -21,7 +21,7 @@ struct CardView: View {
     let input: Input
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 10) {
             Image(uiImage: input.iconImage)
                 .renderingMode(.original)
                 .resizable()
@@ -40,10 +40,24 @@ struct CardView: View {
                     .foregroundColor(.gray)
                 Spacer()
                 HStack(spacing: 4) {
-                    
+                    Image(systemName: "star")
+                        .foregroundColor(.gray)
+                    Text(input.star.description)
+                        .foregroundColor(.gray)
+                        .font(.footnote)
                 }
             }
+            Text(input.description ?? "")
+                .lineLimit(nil)
+            
         }
+        .padding(24)
+        .overlay(
+            RoundedRectangle(cornerRadius: 20)
+                .stroke(Color.gray, lineWidth:  1)
+        )
+        .frame(minWidth: 140, minHeight: 180)
+        .padding()
     }
 }
 
