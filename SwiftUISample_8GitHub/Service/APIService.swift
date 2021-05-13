@@ -41,13 +41,19 @@ final class APIService: APIServiceType {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         return URLSession.shared.dataTaskPublisher(for: request)
+            // mapでレスポンスデータのみ
             .map { data, urlResponse in data }
+            // エラーが起きたらresponseErrorを返す
             .mapError { _ in APIServiceError.responseError }
+            // JSONからデータオブジェクトにデコードする
             .decode(type: Request.Response.self, decoder: decoder)
+            // デコードでエラーが起きたらparseErrorを返す
             .mapError({ (error) -> APIServiceError in
                 APIServiceError.parseError(error)
             })
+            // ストリームをメインスレッドに流れるように変換
             .receive(on: RunLoop.main)
+            // Publisherの型を消去
             .eraseToAnyPublisher()
     }
 }
