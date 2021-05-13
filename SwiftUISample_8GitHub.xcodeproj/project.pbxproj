@@ -16,6 +16,7 @@
 		0925C82B264CFCEA006401C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C82A264CFCEA006401C1 /* CardView.swift */; };
 		0925C82D264D0D21006401C1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C82C264D0D21006401C1 /* HomeView.swift */; };
 		0925C831264D1766006401C1 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C830264D1766006401C1 /* SafariView.swift */; };
+		0925C835264D181B006401C1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C834264D181B006401C1 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		0925C82A264CFCEA006401C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0925C82C264D0D21006401C1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0925C830264D1766006401C1 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		0925C834264D181B006401C1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +105,8 @@
 			children = (
 				0925C7FF264CFBD9006401C1 /* SwiftUISample_8GitHubApp.swift */,
 				0925C801264CFBD9006401C1 /* ContentView.swift */,
-				0925C82A264CFCEA006401C1 /* CardView.swift */,
-				0925C82C264D0D21006401C1 /* HomeView.swift */,
-				0925C830264D1766006401C1 /* SafariView.swift */,
+				0925C833264D17F1006401C1 /* Model */,
+				0925C832264D17CD006401C1 /* View */,
 				0925C803264CFBDC006401C1 /* Assets.xcassets */,
 				0925C808264CFBDC006401C1 /* Info.plist */,
 				0925C805264CFBDC006401C1 /* Preview Content */,
@@ -137,6 +138,24 @@
 				0925C81E264CFBDD006401C1 /* Info.plist */,
 			);
 			path = SwiftUISample_8GitHubUITests;
+			sourceTree = "<group>";
+		};
+		0925C832264D17CD006401C1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0925C830264D1766006401C1 /* SafariView.swift */,
+				0925C82C264D0D21006401C1 /* HomeView.swift */,
+				0925C82A264CFCEA006401C1 /* CardView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0925C833264D17F1006401C1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0925C834264D181B006401C1 /* Repository.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +292,7 @@
 				0925C82B264CFCEA006401C1 /* CardView.swift in Sources */,
 				0925C800264CFBD9006401C1 /* SwiftUISample_8GitHubApp.swift in Sources */,
 				0925C831264D1766006401C1 /* SafariView.swift in Sources */,
+				0925C835264D181B006401C1 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
