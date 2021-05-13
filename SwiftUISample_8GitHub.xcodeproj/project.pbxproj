@@ -18,6 +18,8 @@
 		0925C831264D1766006401C1 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C830264D1766006401C1 /* SafariView.swift */; };
 		0925C835264D181B006401C1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C834264D181B006401C1 /* Repository.swift */; };
 		0925C837264D1868006401C1 /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C836264D1868006401C1 /* Owner.swift */; };
+		0925C83B264D18DA006401C1 /* SearchRepositoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C83A264D18DA006401C1 /* SearchRepositoryResponse.swift */; };
+		0925C83E264D1BD8006401C1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C83D264D1BD8006401C1 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		0925C830264D1766006401C1 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		0925C834264D181B006401C1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		0925C836264D1868006401C1 /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		0925C83A264D18DA006401C1 /* SearchRepositoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryResponse.swift; sourceTree = "<group>"; };
+		0925C83D264D1BD8006401C1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +111,7 @@
 			children = (
 				0925C7FF264CFBD9006401C1 /* SwiftUISample_8GitHubApp.swift */,
 				0925C801264CFBD9006401C1 /* ContentView.swift */,
+				0925C83C264D1BB5006401C1 /* Service */,
 				0925C833264D17F1006401C1 /* Model */,
 				0925C832264D17CD006401C1 /* View */,
 				0925C803264CFBDC006401C1 /* Assets.xcassets */,
@@ -157,8 +162,17 @@
 			children = (
 				0925C834264D181B006401C1 /* Repository.swift */,
 				0925C836264D1868006401C1 /* Owner.swift */,
+				0925C83A264D18DA006401C1 /* SearchRepositoryResponse.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		0925C83C264D1BB5006401C1 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0925C83D264D1BD8006401C1 /* APIService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,8 @@
 				0925C82B264CFCEA006401C1 /* CardView.swift in Sources */,
 				0925C800264CFBD9006401C1 /* SwiftUISample_8GitHubApp.swift in Sources */,
 				0925C831264D1766006401C1 /* SafariView.swift in Sources */,
+				0925C83B264D18DA006401C1 /* SearchRepositoryResponse.swift in Sources */,
+				0925C83E264D1BD8006401C1 /* APIService.swift in Sources */,
 				0925C835264D181B006401C1 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
