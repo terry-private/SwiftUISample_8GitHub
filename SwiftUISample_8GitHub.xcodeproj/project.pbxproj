@@ -22,6 +22,7 @@
 		0925C83E264D1BD8006401C1 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C83D264D1BD8006401C1 /* APIService.swift */; };
 		0925C840264D1EA7006401C1 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C83F264D1EA7006401C1 /* APIServiceError.swift */; };
 		0925C842264D1FA2006401C1 /* SearchRepositoryRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C841264D1FA2006401C1 /* SearchRepositoryRequest.swift */; };
+		0925C8A226566CB3006401C1 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0925C8A126566CB3006401C1 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		0925C83D264D1BD8006401C1 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		0925C83F264D1EA7006401C1 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		0925C841264D1FA2006401C1 /* SearchRepositoryRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryRequest.swift; sourceTree = "<group>"; };
+		0925C8A126566CB3006401C1 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 				0925C834264D181B006401C1 /* Repository.swift */,
 				0925C836264D1868006401C1 /* Owner.swift */,
 				0925C83A264D18DA006401C1 /* SearchRepositoryResponse.swift */,
+				0925C8A126566CB3006401C1 /* HomeViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				0925C837264D1868006401C1 /* Owner.swift in Sources */,
 				0925C82B264CFCEA006401C1 /* CardView.swift in Sources */,
 				0925C800264CFBD9006401C1 /* SwiftUISample_8GitHubApp.swift in Sources */,
+				0925C8A226566CB3006401C1 /* HomeViewModel.swift in Sources */,
 				0925C831264D1766006401C1 /* SafariView.swift in Sources */,
 				0925C83B264D18DA006401C1 /* SearchRepositoryResponse.swift in Sources */,
 				0925C83E264D1BD8006401C1 /* APIService.swift in Sources */,
