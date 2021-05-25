@@ -167,8 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				0925C834264D181B006401C1 /* Repository.swift */,
-				0925C836264D1868006401C1 /* Owner.swift */,
 				0925C83A264D18DA006401C1 /* SearchRepositoryResponse.swift */,
+				0925C836264D1868006401C1 /* Owner.swift */,
 				0925C8A126566CB3006401C1 /* HomeViewModel.swift */,
 			);
 			path = Model;
@@ -178,8 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				0925C83D264D1BD8006401C1 /* APIService.swift */,
-				0925C841264D1FA2006401C1 /* SearchRepositoryRequest.swift */,
 				0925C83F264D1EA7006401C1 /* APIServiceError.swift */,
+				0925C841264D1FA2006401C1 /* SearchRepositoryRequest.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";

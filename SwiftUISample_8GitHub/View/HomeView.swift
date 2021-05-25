@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var cardViewInputs: [CardView.Input] = []
     @State private var text = ""
+    @StateObject private var viewModel: HomeViewModel = HomeViewModel(apiService: APIService())
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
@@ -25,6 +26,7 @@ struct HomeView: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading: HStack {
                 TextField("検索キーワードを入力", text: $text, onCommit: {
+                    viewModel.apply(inputs: .onCommit(text: text))
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.asciiCapable)

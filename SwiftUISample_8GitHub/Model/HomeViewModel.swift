@@ -31,10 +31,29 @@ final class HomeViewModel: ObservableObject {
     // MARK: - Private
     private let apiService: APIServiceType
     // ユーザーの入力操作が終わった時にイベント発行するSubject
-    private let onCommitSubject = PassthroughSubject<APIServiceError, Never>()
+    private let onCommitSubject=PassthroughSubject<String,Never>()
+    //APIリクエストが完了したときにイベント発行するSubject
+    private let responseSubject=PassthroughSubject<SearchRepositoryResponse,Never>()
+    //エラーが起きたらイベント発行するSubject
+    private let errorSubject=PassthroughSubject<APIServiceError,Never>()
+
     
     init(apiService: APIServiceType) {
         self.apiService = apiService
         bind() // Subjectをバインドする
+    }
+    
+    func bind() {
+        
+    }
+    
+    func apply(inputs: Inputs) {
+        switch inputs {
+        case .onCommit(let inputText):
+            onCommitSubject.send(inputText) // ここが実行
+        case .tappedCardView(let urlString):
+            repositoryUrl = urlString
+            isShowSheet = true
+        }
     }
 }
