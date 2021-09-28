@@ -13,25 +13,33 @@ struct HomeView: View {
     @StateObject private var viewModel: HomeViewModel = HomeViewModel(apiService: APIService())
     var body: some View {
         NavigationView {
-            ScrollView(showsIndicators: false) {
-                ForEach(cardViewInputs) { input in
-                    Button(action: {
+            if viewModel.isLoading {
+                Text("読込中...")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+                    .offset(x: 0, y: -200)
+                    .navigationBarTitle("", displayMode: .inline)
+            } else {
+                ScrollView(showsIndicators: false) {
+                    ForEach(cardViewInputs) { input in
+                        Button(action: {
 
-                    }) {
-                        CardView(input: input)
+                        }) {
+                            CardView(input: input)
+                        }
                     }
                 }
-            }
-            .padding()
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarItems(leading: HStack {
-                TextField("検索キーワードを入力", text: $text, onCommit: {
-                    viewModel.apply(inputs: .onCommit(text: text))
+                .padding()
+                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarItems(leading: HStack {
+                    TextField("検索キーワードを入力", text: $text, onCommit: {
+                        viewModel.apply(inputs: .onCommit(text: text))
+                    })
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .keyboardType(.asciiCapable)
+                    .frame(width: UIScreen.main.bounds.width - 40)
                 })
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .keyboardType(.asciiCapable)
-                .frame(width: UIScreen.main.bounds.width - 40)
-            })
+            }
         }
     }
 }
