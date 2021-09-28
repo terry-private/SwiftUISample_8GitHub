@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 final class HomeViewModel: ObservableObject {
     enum Inputs {
@@ -35,6 +36,7 @@ final class HomeViewModel: ObservableObject {
     private let responseSubject = PassthroughSubject<SearchRepositoryResponse, Never>()
     // エラーが起きたらイベント発行するSubject
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
+    private var cancellables: [AnyCancellable] = []
 
     init(apiService: APIServiceType) {
         self.apiService = apiService
@@ -42,6 +44,22 @@ final class HomeViewModel: ObservableObject {
     }
 
     func bind() {
+        let responseSubscriber = onCommitSubject
+            .flatMap { [apiService] (query) in
+                apiService.request(with: SearchRepositoryRequest(query: query))
+                    .catch { [weak self] error -> Empty<SearchRepositoryResponse, Never> in
+                        self?.errorSubject.send(error)
+                        return .init()
+                    }
+            }
+            .map{ $0.items }
+            .sink(receiveValue: { [weak self] (repositories) in
+                guard let self = self else { return }
+                self.cardViewInputs = self.convertInput(repositories: repositories)
+                self.inputText = ""
+                self.isLoading = false
+            })
+        
         let loadingStartSubscriber = onCommitSubject.map{_ in true}.assign(to:\.isLoading,on:self)
     }
 
@@ -52,6 +70,21 @@ final class HomeViewModel: ObservableObject {
         case .tappedCardView(let urlString):
             repositoryUrl = urlString
             isShowSheet = true
+        }
+    }
+    private func convertInput(repositories: [Repository]) -> [CardView.Input] {
+        return repositories.compactMap { (repo) -> CardView.Input? in
+            guard let url = URL(string: repo.owner.avatarUrl) else {
+                return nil
+            }
+            let data = try? Data(contentsOf: url)
+            let image = UIImage(data: data ?? Data()) ?? UIImage()
+            return CardView.Input(iconImage: image,
+                                  title: repo.name,
+                                  language: repo.language,
+                                  star: repo.stargazersCount,
+                                  description: repo.description,
+                                  url: repo.htmlUrl)
         }
     }
 }
