@@ -59,8 +59,21 @@ final class HomeViewModel: ObservableObject {
                 self.inputText = ""
                 self.isLoading = false
             })
-        
-        let loadingStartSubscriber = onCommitSubject.map{_ in true}.assign(to:\.isLoading,on:self)
+
+        let loadingStartSubscriber = onCommitSubject.map {_ in true}.assign(to: \.isLoading,on:self)
+
+        let errorSubscriber = errorSubject
+            .sink(receiveValue: { [weak self] (error) in
+                guard let self = self else { return }
+                self.isShowError = true
+                self.isLoading = false
+            })
+
+        cancellables += [
+            responseSubscriber,
+            loadingStartSubscriber,
+            errorSubscriber
+        ]
     }
 
     func apply(inputs: Inputs) {

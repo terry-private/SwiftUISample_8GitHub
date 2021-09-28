@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var cardViewInputs: [CardView.Input] = []
+//    @State private var cardViewInputs: [CardView.Input] = []
     @State private var text = ""
     @StateObject private var viewModel: HomeViewModel = HomeViewModel(apiService: APIService())
     var body: some View {
@@ -21,9 +21,9 @@ struct HomeView: View {
                     .navigationBarTitle("", displayMode: .inline)
             } else {
                 ScrollView(showsIndicators: false) {
-                    ForEach(cardViewInputs) { input in
+                    ForEach(viewModel.cardViewInputs) { input in
                         Button(action: {
-
+                            viewModel.apply(inputs: .tappedCardView(urlString: input.url))
                         }) {
                             CardView(input: input)
                         }
@@ -43,7 +43,8 @@ struct HomeView: View {
                     SafariView(url: URL(string: viewModel.repositoryUrl)!)
                 }
                 .alert(isPresented: $viewModel.isShowError) {
-                    Alert(title: Text("通信時にエラーが発生しました。もう一度やり直してください"))
+                    Alert(title: Text("通信時にエラーが発生しました。もう一度やり直してください")
+                    )
                 }
             }
         }
