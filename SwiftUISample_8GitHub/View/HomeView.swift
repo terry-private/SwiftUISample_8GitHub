@@ -16,7 +16,7 @@ struct HomeView: View {
             ScrollView(showsIndicators: false) {
                 ForEach(cardViewInputs) { input in
                     Button(action: {
-                        
+
                     }) {
                         CardView(input: input)
                     }

@@ -10,11 +10,10 @@ import Foundation
 enum APIServiceError: Error {
     /// URLが不正な場合を表します。
     case invalidURL
-    
+
     /// APIレスポンスにエラーが発生したことを表します。
     case responseError
-    
+
     /// JSONのパース時にエラーが発生したことを表します。
     case parseError(Error)
 }
-

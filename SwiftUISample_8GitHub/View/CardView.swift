@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CardView: View {
     struct Input: Identifiable {
-        let id: UUID = UUID()
+        let id = UUID()
         let iconImage: UIImage
         let title: String
         let language: String?
@@ -17,7 +17,6 @@ struct CardView: View {
         let description: String?
         let url: String
     }
-    
     let input: Input
 
     var body: some View {
@@ -28,7 +27,7 @@ struct CardView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(Color.gray,lineWidth: 2))
+                .overlay(Circle().stroke(Color.gray, lineWidth: 2))
                 .shadow(color: .gray, radius: 1, x: 0, y: 0)
             Text(input.title)
                 .foregroundColor(.black)
@@ -49,12 +48,11 @@ struct CardView: View {
             }
             Text(input.description ?? "")
                 .lineLimit(nil)
-            
         }
         .padding(24)
         .overlay(
             RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.gray, lineWidth:  1)
+                .stroke(Color.gray, lineWidth: 1)
         )
         .frame(minWidth: 140, minHeight: 180)
         .padding()
@@ -63,7 +61,14 @@ struct CardView: View {
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(input: CardView.Input(iconImage: UIImage(systemName: "cube")!, title: "SwiftUI", language: "Swift", star: 1000, description: "Declare the user interface and behavior for your app on every platform.", url: "https:example.com"))
+        let description = "Declare the user interface and behavior for your app on every platform."
+        CardView(input: CardView.Input(iconImage: UIImage(systemName: "cube")!,
+                                       title: "SwiftUI",
+                                       language: "Swift",
+                                       star: 1000,
+                                       description: description,
+                                       url: "https:example.com")
+        )
             .previewLayout(.sizeThatFits)
     }
 }

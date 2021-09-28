@@ -13,7 +13,6 @@ final class HomeViewModel: ObservableObject {
         case onCommit(text: String)
         case tappedCardView(urlString: String)
     }
-    
     // MARK: - Outputs
     // 表示するリポジトリーデータ
     @Published private(set) var cardViewInputs: [CardView.Input] = []
@@ -27,26 +26,25 @@ final class HomeViewModel: ObservableObject {
     @Published var isShowSheet = false
     // 表示するリポジトリーのURL
     @Published var repositoryUrl: String = ""
-    
+
     // MARK: - Private
     private let apiService: APIServiceType
     // ユーザーの入力操作が終わった時にイベント発行するSubject
-    private let onCommitSubject=PassthroughSubject<String,Never>()
-    //APIリクエストが完了したときにイベント発行するSubject
-    private let responseSubject=PassthroughSubject<SearchRepositoryResponse,Never>()
-    //エラーが起きたらイベント発行するSubject
-    private let errorSubject=PassthroughSubject<APIServiceError,Never>()
+    private let onCommitSubject = PassthroughSubject<String, Never>()
+    // APIリクエストが完了したときにイベント発行するSubject
+    private let responseSubject = PassthroughSubject<SearchRepositoryResponse, Never>()
+    // エラーが起きたらイベント発行するSubject
+    private let errorSubject = PassthroughSubject<APIServiceError, Never>()
 
-    
     init(apiService: APIServiceType) {
         self.apiService = apiService
         bind() // Subjectをバインドする
     }
-    
+
     func bind() {
-        
+        let loadingStartSubscriber = onCommitSubject.map{_ in true}.assign(to:\.isLoading,on:self)
     }
-    
+
     func apply(inputs: Inputs) {
         switch inputs {
         case .onCommit(let inputText):

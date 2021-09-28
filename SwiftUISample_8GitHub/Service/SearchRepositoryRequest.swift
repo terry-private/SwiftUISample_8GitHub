@@ -9,9 +9,9 @@ import Foundation
 
 struct SearchRepositoryRequest: APIRequestType {
     typealias Response = SearchRepositoryResponse
-    var path: String { return "/search/repositories"}
+    var path: String { "/search/repositories" }
     var queryItems: [URLQueryItem]? {
-        return [
+        [
             .init(name: "q", value: query),
             .init(name: "order", value: "desc")
         ]
